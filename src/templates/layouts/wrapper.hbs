@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+        <title>{{title}} | {{site.title}}</title>
+
+        <link rel="stylesheet" href="../assets/css/main.css">
+
+    </head>
+    <body>
+        <a id="top"></a>
+
+        {{> header}}
+
+        <div class="clear"></div>
+
+        {% body %}
+
+        {{#is this.environment "dev"}}
+            <script src="../assets/js/server.bundle.js" defer></script>
+            <script src="../assets/js/hot.bundle.js" defer></script>
+        {{/is}}
+
+        {{#if this.page_script}}
+            <script src="../assets/js/{{this.page_script}}" defer></script>
+        {{/if}}
+    </body>
+</html>
